@@ -20,4 +20,5 @@ library(farspkg)
 To get started, read the introduction vignette: `vignette('introduction', package = 'farspkg')`.
 
 ### Travis Badge
+[![Travis-CI Build Status](https://travis-ci.org/skolchin/farspkg.svg?branch=master)](https://travis-ci.org/skolchin/farspkg)
 
