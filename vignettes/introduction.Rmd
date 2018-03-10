@@ -8,8 +8,10 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+{}
 
 ```{r setup, include = FALSE, echo = FALSE, message = FALSE}
+knitr::opts_knit$set(root.dir = normalizePath(file.path("..", "inst", "extdata")))
 library(farspkg)
 ```
 
@@ -62,7 +64,7 @@ The `fars_map_state` function takes a state ID number and a year and plots given
 List of the state ID numbers is provided in the [FARS Analytical User's Guide](https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/812447)
 (see the STATE variable definition).
 
-```{r mapping_crashes}
+```{r make_maps}
 # Alabama
 fars_map_state(1, 2014)
 # New York
