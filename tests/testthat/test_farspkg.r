@@ -25,7 +25,6 @@ test_that('Multiple years loading', {
 test_that('Test summarizing', {
   years <- 2013:2015
   df <- fars_summarize_years(years)
-  expect_that(nrow(df), equals(12))
   expect_that(ncol(df), equals(length(years) + 1))
 })
 
