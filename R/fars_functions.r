@@ -5,11 +5,12 @@
 #'
 #' If a file does not exist, an execution is stopped.
 #'
-#' The funcion relies on \code{\link{readr::read_csv}} function, which has to be imported.
-#'
 #' @param filename A name of file to load FARS data from. File must be in CSV format.
 #'
+#' @importFrom readr "read_csv"
+#'
 #' @return A data frame containing FARS data
+#'
 #'
 #' @seealso  \code{\link{make_filename}}, \code{\link{fars_read_years}}
 #'
@@ -52,9 +53,11 @@ make_filename <- function(year) {
 #'
 #' If a file for given year does not exist or cannot be loaded, a warning is logged.
 #'
-#' Function \code{\link{dplyr::mutate}} has to be imported.
-#'
 #' @param years An integer vector of years to load data for
+#'
+#' @importFrom magrittr "%>%"
+#' @importFrom dplyr "mutate"
+#' @importFrom dplyr "select"
 #'
 #' @return A list containing FARS data for given years
 #'
@@ -85,10 +88,12 @@ fars_read_years <- function(years) {
 #'
 #' If a file for given year does not exist or cannot be loaded, a warning is logged.
 #'
-#' Functions \code{\link{dplyr::group_by}}, \code{\link{dplyr::summarize}},
-#' \code{\link{tidyr::spread}}  have to be imported.
-#'
 #' @param years An integer vector of years to load data for
+#'
+#' @importFrom magrittr "%>%"
+#' @importFrom dplyr "group_by"
+#' @importFrom dplyr "summarize"
+#' @importFrom tidyr "spread"
 #'
 #' @return A data frame containing number of incidents per year and month
 #'
@@ -115,10 +120,11 @@ fars_summarize_years <- function(years) {
 #' If a wrong state number is provided, the execution is stopped.
 #' If a file for given year does not exist or cannot be loaded, a warning is logged.
 #'
-#' Functions \code{\link{dplyr::filter}}, \code{\link{maps::map}},
-#' \code{\link{graphics::points}} have to be imported.
-#'
 #' @param state.num A state number
+#'
+#' @importFrom dplyr "filter"
+#' @importFrom maps "map"
+#' @importFrom graphics "points"
 #'
 #' @param year An year
 #'
