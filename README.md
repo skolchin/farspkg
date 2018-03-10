@@ -2,7 +2,7 @@
 ## farspkg Package - FARS data and tools
 
 The package is submitted for Week 4 assignment of Coursera module "Building packages".
-The package implements several functions for dealing with Fatality AnalysisReporting System (FARS) data provided by US National Highway Traffic Safety Administration.
+The package implements several functions for dealing with Fatality AnalysisReporting System (FARS) data provided by US National Highway Traffic Safety Administration. 
 
 ### Installation
 
