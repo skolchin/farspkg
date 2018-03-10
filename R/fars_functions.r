@@ -43,7 +43,8 @@ fars_read <- function(filename) {
 #' @export
 make_filename <- function(year) {
         year <- as.integer(year)
-        sprintf("accident_%d.csv.bz2", year)
+        filename <- sprintf("accident_%d.csv.bz2", year)
+        system.file('extdata', filename, package = 'farspkg')
 }
 
 #' Read FARS data for multiple years

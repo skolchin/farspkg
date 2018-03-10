@@ -8,7 +8,6 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-{}
 
 ```{r setup, include = FALSE, echo = FALSE, message = FALSE}
 knitr::opts_knit$set(root.dir = normalizePath(file.path("..", "inst", "extdata")))
