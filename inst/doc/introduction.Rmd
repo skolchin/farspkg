@@ -1,0 +1,72 @@
+---
+title: "Introduction to FARS data & tools package"
+author: "Sergey Kolchin"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE, echo = FALSE, message = FALSE}
+library(farspkg)
+```
+
+
+This package implements several function to work with data from the National Highway Traffic Safety AdministrationFatality Analysis Reporting System (FARS).
+
+The package was written for the Week 4  assignment for the "Building R Packages" course on Coursera as a part of Johns Hopkins University "Mastering Software Development in R" specialization.
+
+## The Data
+
+The data in this package come from the National Highway Traffic Safety Administration (NHTSA) Fatality Analysis Reporting System (FARS) data.  It lists the fatal vehicle crashes in the United States for each year.
+
+The data provided within the package are available for 2013-2015 years.
+
+More information about the data is available in [NHTSA FARS Manuals & Documentation page](https://crashstats.nhtsa.dot.gov/#/DocumentTypeList/4). 
+
+## Loading FARS Data
+
+To load data for a year, use the `make_filename()` and `fars_read()` functions:
+```{r load_year}
+fars_2014 <- fars_read(make_filename(2014))
+```
+
+Make sure that the data file is in current working directory.
+
+### Load data for multiple years
+
+To load data for several years, use the `fars_read_years()` function with a vector of years as an input. This returns a list of of the `tbl_df` (the `tidyverse` data frame) containing the month and year for each fatal accident.  
+
+```{r load_years}
+fars_2014_2015 <- fars_read_years(years = c(2014, 2015))
+fars_2014_2015[[1]]
+```
+
+## Summarizing FARS Data
+
+The `fars_summarize_years()` function take the same argument as the `fars_read_years()`, and produces a summary of the simple counts of fatalities by month and year: 
+
+```{r summarize_data}
+fars_summary <- fars_summarize_years(2013:2015)
+fars_summary
+```
+
+
+
+## Mapping Fatal Crashes
+
+The `fars_map_state` function takes a state ID number and a year and plots given state's fatalities on a state map. Iin order to use this function, the `maps` package has to be loaded.
+
+List of the state ID numbers is provided in the [FARS Analytical User's Guide](https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/812447)
+(see the STATE variable definition).
+
+```{r mapping_crashes}
+# Alabama
+fars_map_state(1, 2014)
+# New York
+fars_map_state(36, 2014)
+```
+
+
